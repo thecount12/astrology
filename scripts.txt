@@ -1,19 +1,16 @@
-# Birth records (local civil time). Sun signs noted for reference only —
-# chart4 argv[2]/[3] are TROPICAL ASCENDANT (rising), not Sun sign.
+# Birth records (local civil time).
+# chart argv[2]/[3] = tropical ascendant from ./ascendant (not Sun sign).
 
-# william dad — 1974-05-18 4:16am (tz -8); ascendant taurus 30.00 → sidereal Taurus 6.50 rising
-./makechart2 1974 05 18 `{./hms 4:16 am} -8.0 36.33 -119.95
-./chart4 1974 taurus 30.00 `{./hms 4:16 am} 05/18 36.33N 119.95W 57.19 20.57 72.71 15.45 107.18 344.27 94.26
+# william dad — 1974-05-18 4:16am (tz -8); sidereal Taurus rising
+./makechart 1974 05 18 `{./hms 4:16 am} -8.0 36.33 -119.95
+./chart 1974 taurus 30.00 `{./hms 4:16 am} 05/18 36.33N 119.95W 57.19 20.57 72.71 15.45 107.18 344.27 94.26
 
-# olaf son — 2001-06-06 00:05 CDT (tz -6); Sun in Gemini (tropical)
-# ascendant: pisces 18.17 → sidereal Aquarius ~24° rising
-./makechart2 2001 06 06 `{./hms 00:05} -6.0 36.15 -95.99
-./chart4 2001 pisces 18.17 `{./hms 00:05} 06/06 36.15N 95.99W 75.62 253.15 89.84 29.85 264.96 81.62 65.72
+# olaf son — 2001-06-06 00:05 (tz -6)
+./makechart 2001 06 06 `{./hms 00:05} -6.0 36.15 -95.99
+./chart 2001 pisces 18.17 `{./hms 00:05} 06/06 36.15N 95.99W 75.62 253.15 89.84 29.85 264.96 81.62 65.72
 
-# ingrid daughter — 2002-08-29 12:43 CDT (tz -6); Sun in Virgo (tropical)
-# ascendant: sagittarius 9.27 → sidereal Scorpio ~15° rising
-./makechart2 2002 08 29 `{./hms 12:43} -6.0 36.15 -95.99
-./chart4 2002 sagittarius 9.27 `{./hms 12:43} 08/29 36.15N 95.99W 156.50 59.58 183.52 202.23 150.26 126.05 87.31
+# ingrid daughter — 2002-08-29 12:43 (tz -6)
+./makechart 2002 08 29 `{./hms 12:43} -6.0 36.15 -95.99
+./chart 2002 sagittarius 9.27 `{./hms 12:43} 08/29 36.15N 95.99W 156.50 59.58 183.52 202.23 150.26 126.05 87.31
 
-# render: append to any chart4 line above
-# | pic | troff | page -w
+# render: | pic | troff | page -w

@@ -85,7 +85,7 @@ main(int argc, char *argv[])
 	sign_idx = (int)(asc_absolute / 30.0);
 	local_deg = asc_absolute - (sign_idx * 30.0);
 
-	/* Output clean string formatting matching chart4 parameters */
+	/* Output clean string formatting matching chart parameters */
 	print("%s %.2f\n", zodiac_lookup[sign_idx], local_deg);
 
 	exits(nil);

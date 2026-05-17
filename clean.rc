@@ -1,13 +1,6 @@
 #!/bin/rc
-# script to cleanup directory
-echo "cleaning files linkers"
-rm *.6
-rm ascendant
-rm chart
-rm chart2
-rm chart3
-rm chart4
-rm ephem
-rm hms
-rm sample
-echo "cleaned"
+# Remove objects and binaries built by mk (see mkfile).
+echo cleaning
+rm -f *.[$objtype] [$objtype].out
+rm -f chart ascendant ephem hms sample
+echo cleaned

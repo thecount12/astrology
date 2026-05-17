@@ -1,24 +1,27 @@
 #!/bin/rc
-# Usage: ./makechart [Year] [Month] [Day] [Hour_UT] [RisingSign] [AscDeg] [Lat] [Long]
-# ./makechart 1974 05 18 12.0 taurus 15.0 36.20N 119.57W
+# Usage: ./makechart YEAR MONTH DAY `{./hms HH:MM} TZ LAT LON
+# Example: ./makechart 1974 05 18 `{./hms 4:16 am} -8.0 36.33 -119.95
 
-# 1. Format the data parameters into the exact structures each binary expects
 year=$1
 month=$2
 day=$3
-ut_time=$4
-rising_sign=$5
-asc_deg=$6
-latitude=$7
-longitude=$8
+local_hour=$4
+tz_offset=$5
+lat=$6
+lon=$7
 
-# Create a clean combined "Month/Day" string for the chart4 text title banner
-dob_string=$month/$day
+# Compute Greenwich Time via standard shell arithmetic
+ut_hour=`{ hoc -e $local_hour'-('$tz_offset')' }
 
-# 2. Run the dynamic astronomical math engine to extract raw positions
-# Example expansion: ./ephem 1974 5 18 12.0
-pos=`{ ./ephem $year $month $day $ut_time }
+# Run calculations and split the outputs into standalone clean variables
+asc_data=`{ ./ascendant $year $month $day $local_hour $tz_offset $lat $lon }
+asc_sign=$asc_data(1)
+asc_deg=$asc_data(2)
 
-# 3. Pass the year, strings, degrees, AND the calculated positions directly into chart4
-# The shell automatically expands the space-separated $pos array into items 8 through 14
-./chart4 $year $rising_sign $asc_deg $ut_time $dob_string $latitude $longitude $pos | pic | troff | page -w
+# Pull deep space geocentric coordinates from your ephemeris binary
+pos=`{ ./ephem $year $month $day $ut_hour }
+
+# Fire elements down the line matching the precise manual index positions
+./chart $year $asc_sign $asc_deg $local_hour $month'/'$day $lat $lon $pos | pic | troff | page -w
+
+

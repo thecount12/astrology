@@ -144,7 +144,7 @@ main(int argc, char *argv[])
 		geo_long[i+2] = rev(deg(atan2(ry, rx)));
 	}
 
-	/* 4. Output space-separated numbers that match chart4's sequential array arguments */
+	/* 4. Output space-separated numbers for chart (Sun through Saturn) */
 	print(" %.2f %.2f %.2f %.2f %.2f %.2f %.2f\n", 
 		geo_long[0],  /* Sun */
 		geo_long[1],  /* Moon */
