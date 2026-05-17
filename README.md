@@ -123,6 +123,10 @@ See `scripts.txt` for three tested family charts (cpu-verified).
 - **Ayanamsha:** Linear Lahiri drift from 1900 in `chart.c`.
 - **Houses:** Whole sign only (no Placidus).
 
+## macOS / Linux (POSIX)
+
+See **[posix/README.md](posix/README.md)** — `make`, `./makechart.sh`, output via **groff** / **pic** as PDF.
+
 ## Cleanup
 
 ```rc
