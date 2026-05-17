@@ -1,0 +1,26 @@
+Step 1: Your Real Ephemeris Planet Coordinates
+
+On May 18, 1974, the exact positions of the celestial bodies calculated from an astronomical ephemeris (converted to raw absolute \(360^{\circ }\) circle paths) are:
+
+Sun: \(57.0^{\circ }\) (Tropical: \(27^{\circ }\) Taurus)
+Moon: \(356.5^{\circ }\) (Tropical: \(26^{\circ }\) Pisces)
+Mercury: \(74.5^{\circ }\) (Tropical: \(14^{\circ }\) Gemini)
+Venus: \(29.0^{\circ }\) (Tropical: \(29^{\circ }\) Aries)
+Mars: \(103.5^{\circ }\) (Tropical: \(13^{\circ }\) Cancer)
+Jupiter: \(343.0^{\circ }\) (Tropical: \(13^{\circ }\) Pisces)
+Saturn: \(69.0^{\circ }\) (Tropical: \(9^{\circ }\) Gemini)
+
+Step 2: The Sidereal Transformation
+
+For your birth year 1974, the exact calculated Lahiri Ayanamsha constellation drift offset is exactly \(-23.51^{\circ }\).
+
+Subtracting \(23.51^{\circ }\) from every coordinate pulls your chart out of the seasonal framework and anchors it directly to the true background constellations:
+
+Sun: \(57.0^\circ - 23.51^\circ = \mathbf{33.49^\circ}\) (Taurus)
+Moon: \(356.5^\circ - 23.51^\circ = \mathbf{332.99^\circ}\) (Pisces)
+Mercury: \(74.5^\circ - 23.51^\circ = \mathbf{50.99^\circ}\) (Taurus)
+Venus: \(29.0^\circ - 23.51^\circ = \mathbf{5.49^\circ}\) (Aries)
+Mars: \(103.5^\circ - 23.51^\circ = \mathbf{79.99^\circ}\) (Gemini)
+Jupiter: \(343.0^\circ - 23.51^\circ = \mathbf{319.49^\circ}\) (Aquarius)
+
+Saturn: \(69.0^\circ - 23.51^\circ = \mathbf{45.49^\circ}\) (Taurus)

@@ -1,0 +1,132 @@
+To build a classical, non-tropical (sidereal) astrology chart completely from scratch, you must strip away modern automated software and bypass the seasonal framework of the tropical zodiac. Instead, you calculate coordinates using fixed stellar anchors combined with the ancient house division techniques common to both Hellenistic and early Indian traditions.
+
+Because calculating multi-body planetary orbital cycles by hand requires massive mathematical look-up datasets, building a chart from scratch manually relies on combining two raw foundational tools: an Astronomical Ephemeris (which contains raw tropical planetary tracking coordinates) and an Ayanamsha mathematical offset formula to convert those figures to the actual physical stars.
+
+Step 1: Establish Universal Time (UT / GMT)
+
+An ephemeris catalogs planetary data uniformly in Greenwich Mean Time (GMT) or Universal Time (UT).
+
+1. Convert the local birth time into a standard 24-hour military clock.
+2. Subtract 1 hour if Daylight Saving Time (DST) was active during birth.
+3. Apply the Time Zone Offset relative to Greenwich, England. Add hours if the birth location is West of Greenwic    ; subtract hours if East.
+
+Formula: UT = Local Time - DST Adjustment +/- Zone Offset 
++/-: plus or minus
+
+Step 2: Extract the Raw Planetary Data
+
+Using a standard physical ephemeris (such as the Rosicrucian Ephemeris or standard Swiss Ephemeris data tables), locate the data row for the correct calendar date.
+
+* Note down the raw positions for the Sun, Moon, and planets.
+
+* Because these tables record positions at exactly 0:00 (Midnight UT), calculate the precise motion fraction by de  termining what percentage of the 24-hour day (%D) elapsed between midnight and your target birth UT.
+
+* Multiply each planet's daily velocity by \(\%D\) and add (or subtract, if the planet is marked retrograde) that   value to the base midnight position.
+
+Step 3: Apply the Classical Non-Tropical (Sidereal) Correction
+
+An ephemeris uses tropical coordinates based on the moving Equinoxes. To anchor your data to the actual structural constellations, you must calculate and apply a mathematical offset called an Ayanamsha.
+
+The most universally accepted classical standard is the Lahiri Ayanamsha (the official standard adopted by the Indian government). It measures cosmic drift from a fixed baseline year (around 285 CE) when the tropical and sidereal zodiacs perfectly aligned.
+
+1. Look up the specific Ayanamsha value for the birth year. For charts cast in the mid-2020s, this offset is appro   ximately 24°13' to 24°15'
+
+2. Convert your raw tropical coordinates into absolute linear degrees on a 360° circle (e.g., 15° Taurus becomes 
+   45° absolute).
+
+3. Subtract the Ayanamsha value from that absolute degree number.
+
+4. Convert the resulting absolute degree value back into the standard 30° zodiacal format.
+
+Step 4: Calculate the True Ascendant (Rising Sign)
+
+The Ascendant is the intersection point where the eastern horizon crosses the path of the ecliptic at the exact minute of birth.
+
+1. Find the base Sidereal Time (ST) for Midnight UT on your chart's calendar date from your ephemeris tables.
+
+2. Calculate the Local Sidereal Time (LST) by applying this standard conversion formula:
+
+Formula: LST = Base ST + UT Birth Time + (UT Birt Time x 0.002739) +/- Local Longitude Equivalent
+
+(Note: The 0.0027379 term is the acceleration correction factoring in the earth's rotation relative to background stars rather than the Sun).
+
+3. Use a traditional Table of Houses tool. Cross-reference the final computed LST value against the precise geographic latitude coordinates of the birth city.
+
+4. Extract the listed degree, which yields the raw Tropical Ascendant. Subtract the exact Ayanamsha offset value calculated in Step 3 to establish your true classical sidereal Ascendant.
+
+Step 5: Structuring the Classical Chart Structure
+
+In classical Hellenistic and early Indian traditions, the Whole Sign House System is the oldest documented framework. Unlike modern Western quadrant house methods (like Placidus or Koch) which calculate complex mathematical lines to split space unevenly, Whole Sign houses map out symmetrically.
+
+* The 1st House Cusp: Identify the exact constellation your sidereal Ascendant falls into. That entire constellati  on—from 0° to 30° —becomes the 1st House.
+
+* Subsequent Houses: Symmetrically map out the remaining houses sequentially in a counterclockwise circle. The nex  t consecutive constellation fills the entirety of the 2nd house, the next fills the 3rd, and so on.
+
+* Plotting Placements: Draw out a 12-section circular structural wheel or a classic square chart matrix. Populate   the quadrants by placing your newly corrected sidereal planetary markers directly into their corresponding house  s based on their calculated constellation coordinates
+
+
+----
+
+Why Plan 9's astro and scat Fall Short
+
+* Tropical/Observational Bias: The native astro command is fundamentally built for observational astronomy, produc  ing equatorial (Right Ascension/Declination) or topocentric (Azimuth/Altitude) tracking coordinates. It lacks an  integrated Ayanamsha (sidereal shift calculation) mechanism to mathematically lock positions to fixed background  stellar structures.
+
+* Database Disconnect: The scat command is an interface designed to query deep-space stellar catalogs like the SAO  or NGC and tap into the Digitized Sky Survey. It handles objects outside the solar system, which is total 
+  overkill for tracking the 7 traditional classical planets.
+
+* Graphic Limitations: Plan 9's plot utility processes simple vector paths but lacks semantic awareness of 
+  typographic alignment, precise text-wrapping inside specific circular sectors, or the structural layout logic of  astrological houses.
+
+Potential POC usin C + troff + pic
+
+[Birth Date Input] -> [C Program (Math/Ayanamsha)] -> [pic script] -> [troff] -> [PostScript/PDF]
+
+1. The C Layer (Data & Corrections)
+
+Write a lean C program using standard Plan 9 libc conventions. This layer takes local birth variables, extracts planetary values, handles the math, and prints structural geometric code.
+
+* Ephemeris Data: Instead of writing complex orbital perturbation math from scratch, hardcode a small structure ar  ray containing raw daily positions (or map a simplified, lightweight analytical dataset into memory).
+
+* The Sidereal Shift: Implement a basic macro to convert raw tropical coordinates to a fixed absolute degree 
+  mapping before subtracting the Lahiri Ayanamsha offset.
+
+* House Distribution: Implement Whole Sign layout logic. The constellation containing the computed Ascendant sets   the initial boundary, and each subsequent 30°block maps directly to a discrete house.
+
+The final block of your C program should output formatted strings directly into standard output as 
+pic code commands:
+
+Pseudo Code:
+
+/* Sample snippet of C outputting pic vector instructions */
+print("circle radius 2.5 at 0,0\n");
+for(i = 0; i < 12; i++) {
+    double angle = (i * 30.0) * (PI / 180.0);
+    print("line from %f,%f to %f,%f\n", 
+        1.5 * cos(angle), 1.5 * sin(angle), 
+        2.5 * cos(angle), 2.5 * sin(angle));
+}
+
+
+2. The Visual Layer (pic & troff)
+
+pic is exceptionally well-suited for drawing a classical chart wheel or a traditional square Hellenistic chart matrix because it excels at procedural geometry, loops, and relative coordinate positioning.
+
+* Drawing Circles and Vectors: Use pic variables to define the inner ring, outer ring, and house boundaries.
+
+* Dynamic Placement: Because your C code outputs the exact \((x,y)\) coordinate math for planetary symbols, pic 
+  can effortlessly stamp text labels or specific glyphs onto those localized points.
+
+* Typography: pic pipes its visual layout straight into troff. This lets you seamlessly leverage native 
+  typography engines, clean point-size adjustments, and exact font selections for planetary names and degrees.
+
+Implementation Blueprint
+
+Save your layout formatting instructions as a template file (macro.p) and execute your pipeline directly from the rc shell:
+
+#!/bin/bin/rc
+# Compute sidereal metrics via C binary and compile the visual asset
+./my_astro_c -d 1993-05-12 -t 14:30 -l 45.5N 73.5W | troff -mcl -pmpic | page
+
+By keeping the calculations contained within a portable C script and leaving the visualization steps to pic and troff, you maintain a lightweight footprint while ensuring absolute control over the non-tropical math and house structures.
+
+If you want to start writing the C program, what ephemeris dataset or analytical method are you planning to use to source the raw planetary positions? I can help you draft the coordinate conversion math.

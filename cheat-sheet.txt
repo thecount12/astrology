@@ -1,0 +1,36 @@
+The Core Cheat Sheet: How to Read Your Wheel
+
+When your rc scripts spin up a chart for a friend, reading the canvas boils down to tracking three layered components:
+
+A. The Outer Constellation Ring (The Sky)
+
+* These names are the true, non-moving physical stars behind the planets.
+
+* Because you applied the Lahiri Ayanamsha, if your code says someone's Sun is at \(4.5^{\circ }\) Aries, it means if you stepped outside on their birth date and looked through a telescope, the physical sphere of the Sun was passing through the literal stars of the Aries constellation.
+
+B. The Innermost Ring (The 12 Houses)
+
+The houses represent local areas of life. Because your engine anchors the 1st House directly to whatever constellation was rising on the eastern horizon at birth, the houses tell you where planetary action takes place:
+
+House 1: The physical body, appearance, and immediate vitality.
+House 2: Money, raw resources, livelihood, and material support.
+House 3: Siblings, local travel, daily communication, and skills.
+House 4: Home, family roots, ancestral lineage, and hidden matters.
+House 5: Children, creativity, pleasure, and artistic expressions.
+House 6: Daily labor, health maintenance, illness, and small animals.
+House 7: Spouses, long-term partnerships, and open agreements.
+House 8: Shared finances, inheritances, transformations, and debts.
+House 9: Higher education, philosophy, foreign travel, and belief systems.
+House 10: Career, public reputation, status, and visible authority.
+House 11: Friendships, alliances, massive social groups, and community hopes.
+House 12: Solitude, hidden worries, self-undoing, and deep isolation.
+
+C. Reading the Center Aspect Lines (The Relationship Dynamics)
+
+When lines flash across the center core circle of your chart, they show how your friend's internal archetypes talk to each other:
+
+Bold Dashed Line (Trine - \(120^{\circ }\)): Gifted harmony. The two planets share the same elemental alignment (e.g., both are in Fire signs) and flow effortlessly together without friction.
+
+Thin Dashed Line (Square - \(90^{\circ }\)): Major friction. The planets are hitting each other at a jarring right angle, representing internal crossroads, ambition, and hurdles that require work to overcome.
+
+Medium Dashed Line (Opposition - \(180^{\circ }\)): Tugging match. The planets sit directly opposite each other, forcing the person to constantly balance two opposing areas of life (like balancing House 4 family with House 10 career).

@@ -1,0 +1,3 @@
+Building a clean, native ephem.c completely from scratch using standard Plan 9 conventions (<u.h> and <libc.h>) is a much more robust approach. We can implement standard Keplerian Orbital Elements based on data from NASA's Jet Propulsion Laboratory (JPL).
+
+By taking a target date, calculating the time delta relative to the absolute reference epoch (January 1, 2000, 12:00 UT), and computing heliocentric planetary positions, the program projects coordinates onto a geocentric plane (as seen from Earth). It then outputs a clean line of numbers that pipes straight into your working chart layout engine.

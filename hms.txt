@@ -1,0 +1,5 @@
+# Casts a chart using your raw "4:16 am" clock string directly in the parameter chain
+cpu% ./makechart2 1974 05 18 `{./hms 4:16 am} -8.0 36.33 -119.95
+
+# Casts for someone else born in the evening using standard PM time tracking
+cpu% ./makechart2 1995 08 12 `{./hms 9:45 pm} -5.0 40.71 -74.00

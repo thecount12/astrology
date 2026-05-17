@@ -1,0 +1,13 @@
+#!/bin/rc
+# script to cleanup directory
+echo "cleaning files linkers"
+rm *.6
+rm ascendant
+rm chart
+rm chart2
+rm chart3
+rm chart4
+rm ephem
+rm hms
+rm sample
+echo "cleaned"

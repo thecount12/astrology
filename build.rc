@@ -1,0 +1,3 @@
+#!/bin/rc
+# script to render geometry
+pic macro.ms | troff | page -w
