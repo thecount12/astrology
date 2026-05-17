@@ -22,6 +22,7 @@ asc_deg=$asc_data(2)
 pos=`{ ./ephem $year $month $day $ut_hour }
 
 # Fire elements down the line matching the precise manual index positions
+#./chart $year $asc_sign $asc_deg $local_hour $month'/'$day $lat $lon $pos | pic | troff | lp -dstdout | ps2pdf > blah.pdf
 ./chart $year $asc_sign $asc_deg $local_hour $month'/'$day $lat $lon $pos | pic | troff | page -w
 
 
