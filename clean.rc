@@ -1,6 +1,5 @@
 #!/bin/rc
 # Remove objects and binaries built by mk (see mkfile).
 echo cleaning
-rm -f *.[$objtype] [$objtype].out
-rm -f chart ascendant ephem hms sample
+mk clean
 echo cleaned

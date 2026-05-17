@@ -1,16 +1,32 @@
 </$objtype/mkfile
 
-# Build tools in this directory (override with BIN=/$objtype/bin for system install).
-BIN=.
+# Plain binary names (chart, not 6.chart) for ./makechart.
+# Do NOT add </sys/src/cmd/mkmany> — that installs $O.chart instead.
 
-TARG=\
-	chart\
-	ascendant\
-	ephem\
-	hms\
+TARG=chart ascendant ephem hms
 
-</sys/src/cmd/mkmany
+default all:V: $TARG
 
-# Convenience aliases for rc scripts in this tree.
-install:V: all
-	@{ echo 'built:' $TARG }
+chart: chart.c
+	$CC $CFLAGS chart.c
+	$LD -o chart chart.$O
+
+ascendant: ascendant.c
+	$CC $CFLAGS ascendant.c
+	$LD -o ascendant ascendant.$O
+
+ephem: ephem.c
+	$CC $CFLAGS ephem.c
+	$LD -o ephem ephem.$O
+
+hms: hms.c
+	$CC $CFLAGS hms.c
+	$LD -o hms hms.$O
+
+installall:V: all
+	cp $TARG /$cputype/bin
+
+clean:V:
+	rm -f *.$O [$objtype].out $TARG $objtype.*
+
+nuke:V: clean

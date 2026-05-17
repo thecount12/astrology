@@ -1,0 +1,16 @@
+#!/bin/rc
+# One-time fix if mk built 6.chart instead of chart (old mkmany mkfile).
+# Usage: ./fixbins.rc
+
+for (t in chart ascendant ephem hms) {
+	p=$objtype^'.'^$t
+	if (~ -f $p) {
+		echo mv $p '->' $t
+		mv $p $t
+	}
+}
+if (! ~ -x ./chart) {
+	echo fixbins: no chart binary; run mk all first
+	exit notfound
+}
+echo ok: ./chart ./ascendant ./ephem ./hms

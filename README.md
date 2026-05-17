@@ -22,17 +22,30 @@ From this directory on Plan 9:
 
 ```rc
 mk
+# or: mk all
 chmod +x makechart
 ```
 
-`mk` uses `mkfile` and builds `chart`, `ascendant`, `ephem`, and `hms` in the current directory (`BIN=.`).
+`mk` builds **`chart`**, **`ascendant`**, **`ephem`**, and **`hms`** in the current directory (plain names, not `6.chart`).
 
 ```rc
-mk nuke      # remove objects (via mkmany)
-./clean.rc   # remove objects and binaries
+mk clean     # remove objects and binaries
+./clean.rc   # same via rc wrapper
+mk installall   # copy binaries to /$cputype/bin
 ```
 
-To install into `/$objtype/bin`, run `mk install` with `BIN=/$objtype/bin` set in `mkfile`.
+If `mk all` still creates **`6.chart`** instead of **`chart`**, the cpu copy of `mkfile` is stale (still using `mkmany`). Check:
+
+```rc
+head -3 mkfile
+```
+
+It should **not** contain `mkmany`. Then `mk nuke` and `mk`. Quick workaround:
+
+```rc
+chmod +x fixbins.rc
+./fixbins.rc
+```
 
 ## Quick start
 
