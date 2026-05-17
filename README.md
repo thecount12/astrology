@@ -84,6 +84,33 @@ Pick the correct **standard/DST** offset for the birth date (e.g. May 1974 Calif
 - **Footer:** sidereal ascendant degree and sign.
 - **Center:** dashed aspect lines (conjunction, square, trine, opposition).
 
+## Does the Sun (and everything else) move back one sign?
+
+**Often about one sign earlier — but not always.**
+
+`ascendant` and `ephem` output **tropical** longitudes (what most websites use). `chart` subtracts **Lahiri ayanamsha** (~**23½°–24°** today). One sign is **30°**, so the shift is **roughly one sign backward** on the zodiac for many placements.
+
+It depends on **how far into the tropical sign** the body sits:
+
+| Tropical (typical) | After ~24° subtract | Result |
+|--------------------|---------------------|--------|
+| 15° Gemini | ~21° Taurus | About **one sign back** |
+| 6° Virgo | ~12° Leo | About **one sign back** |
+| 27° Taurus | ~3° Taurus | **Same sign**, earlier degree |
+| 28° Pisces | ~4° Pisces | **Same sign** (not a full sign back) |
+
+The same rule applies to the **rising sign**, not only the Sun. Example from this repo:
+
+| Person | Tropical (input / date) | Sidereal on the wheel |
+|--------|-------------------------|------------------------|
+| Dad | Taurus Sun (May 18); tropical rising end of Taurus | **Taurus** Sun ~3.7°; **Taurus** rising ~6.5° |
+| Son | **Gemini** Sun (Jun 6) | **Taurus** Sun ~21.7°; **Aquarius** rising |
+| Daughter | **Virgo** Sun (Aug 29) | **Leo** Sun ~12.6°; **Scorpio** rising |
+
+So tropical “Gemini Sun” or “Virgo Sun” from a calendar can still appear as **Taurus** or **Leo** on this chart — that is expected, not a bug.
+
+**Tropical** = anchored to seasons (equinoxes). **Sidereal (Lahiri)** = anchored to the fixed-star framework with a standard offset. Few mainstream sites use this combination (classical sidereal + whole-sign houses).
+
 ## Manual pipeline (debug or custom ephemeris)
 
 ```rc

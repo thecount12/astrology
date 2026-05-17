@@ -77,3 +77,7 @@ make clean
 | `pic \| troff \| page -w` | `pic \| groff -Tpdf` |
 
 Math and chart output match the parent tree when given the same inputs.
+
+## Tropical vs sidereal
+
+See the parent **[README.md](../README.md)** section *Does the Sun (and everything else) move back one sign?* — sidereal placements are often about one sign earlier than tropical, but not always.

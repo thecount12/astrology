@@ -1,0 +1,50 @@
+Here are additions that would fit what you’ve built, grouped by payoff vs effort.
+
+High value, modest effort
+Parse N / S / E / W in ascendant (and maybe lat in makechart) so 36.33N and 119.95W work — you already hit this on Plan 9.
+
+printchart or dump mode — chart -d (or a tiny fifth binary) that prints sidereal longitudes + rising as text/JSON, no pic/groff. Easier to verify than reading the wheel.
+
+Golden tests — shell script that runs the three scripts.txt births and checks ascendant/ephem lines (and maybe the chart footer string). Catches regressions when you edit C.
+
+Batch runner — runscripts.rc / runscripts.sh that loops scripts.txt and writes dad.pdf, olaf.pdf, etc.
+
+Tropical vs sidereal on the banner — one extra line: Tropical asc: Taurus 30.00 under the sidereal footer. Removes the “why is argv taurus but I’m Aries?” confusion.
+
+Improves accuracy (more work)
+Better Moon in ephem — biggest gap vs table ephemerides; Sun is already close.
+
+DST note or helper — table in README, or makechart comment when tz is -8 in May; optional tzdb link for POSIX.
+
+Day rollover — if UT crosses midnight, pass the adjusted date into ephem (you noted ascendant can bump day but ephem didn’t always).
+
+Classical / product features
+Optional outer planets — Uranus/Neptune/Pluto as flags (off by default) if you ever want them without changing the classical default.
+
+Aspect legend on the chart — small key for thick/dashed lines (trine, square, opposition, conjunction).
+
+Second ayanamsha — only if you care; Lahiri is the right default for what you described.
+
+cheat-sheet.txt → short “how to read this wheel” in README or a one-page PDF from the same pic pipeline.
+
+POSIX / Mac polish
+make install → ~/bin or /usr/local/bin
+
+PNG output — groff -Tpng in makechart.sh as CHART_FMT=png
+
+Check for groff/pic in make with a clear error (you partly have this in makechart.sh)
+
+Plan 9 polish
+mk installall you have; document copying makechart to $home/bin/rc
+
+Remove or archive legacy/ from default build so new you isn’t confused
+
+man pages — short chart(1), makechart(1) in Plan 9 style
+
+Probably skip unless you need them
+Full Swiss Ephemeris binding (huge; contradicts “lean Plan 9 C”)
+Placidus/Koch houses (different tradition than whole-sign classical)
+Web UI (big project)
+Tropical mode toggle (dilutes the point of the repo)
+
+
